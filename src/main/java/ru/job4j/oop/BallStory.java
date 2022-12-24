@@ -12,5 +12,4 @@ public class BallStory {
         fax.tryEat(ball);
     }
 
-
 }

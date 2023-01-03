@@ -32,8 +32,7 @@ public class Calculator {
     }
 
     public int sumAllOperation(int a) {
-        Calculator calculator = new Calculator();
-        return sum(a) + minus(a) + calculator.multiply(a) + calculator.divide(a);
+        return sum(a) + minus(a) + multiply(a) + divide(a);
     }
 
 }

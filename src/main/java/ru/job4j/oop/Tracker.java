@@ -5,6 +5,22 @@ public class Tracker {
     private int ids = 1;
     private int size = 0;
 
+    private int id;
+
+    private String name;
+
+    public Tracker() {
+    }
+
+    public Tracker(String name) {
+        this.name = name;
+    }
+
+    public Tracker(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;

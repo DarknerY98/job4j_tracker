@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.oop;
 
 import org.junit.jupiter.api.Test;
 import ru.job4j.oop.Point;

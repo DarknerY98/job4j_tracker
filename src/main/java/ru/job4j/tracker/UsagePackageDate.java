@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class UsagePackageDate {
     public static void main(String[] args) {
+
         LocalDateTime currentDateTime = LocalDateTime.now();
         System.out.println("Текущие дата и время до форматирования: " + currentDateTime);
 

@@ -6,11 +6,7 @@ public class Item {
     private int id;
     private String name;
 
-    LocalDateTime created = LocalDateTime.now();
-
-    public LocalDateTime getcreated() {
-       return created;
-    }
+    private LocalDateTime created = LocalDateTime.now();
 
     public Item() {
     }
@@ -40,4 +36,7 @@ public class Item {
         this.name = name;
     }
 
+    public LocalDateTime getcreated() {
+        return created;
+    }
 }

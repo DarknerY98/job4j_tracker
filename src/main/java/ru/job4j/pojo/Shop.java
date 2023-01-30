@@ -3,15 +3,15 @@ package ru.job4j.pojo;
 public class Shop {
 
     public static int indexOfNull(Product[] products) {
-        int a = -1;
+        int res = -1;
         for (int index = 0; index < products.length; index++) {
             if (products[index] == null) {
-                 a = index;
-                 break;
+                res = index;
+                break;
             }
-            }
-        return a;
         }
+        return res;
+    }
 
     public static void main(String[] args) {
         Product[] products = new Product[5];

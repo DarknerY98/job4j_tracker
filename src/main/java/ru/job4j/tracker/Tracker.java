@@ -34,7 +34,7 @@ public class Tracker {
                 }
             }
         }
-        return items;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
@@ -44,9 +44,9 @@ public class Tracker {
             Item item = items[i];
             if (key.equals(items[i].getName())) {
                 rsl[index] = item;
-                index += 1;
+                index++;
             }
         }
-            return Arrays.copyOf(rsl, index);
-        }
+        return Arrays.copyOf(rsl, index);
+    }
 }

@@ -74,7 +74,7 @@ public class TrackerTest {
         assertThat(result).isFalse();
     }
 
-    @Test
+     @Test
     public void whenDeleteItemIsSuccessful() {
         Tracker tracker = new Tracker();
         Item item = new Item("Bug");

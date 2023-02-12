@@ -65,7 +65,6 @@ public class Tracker {
             items[index] = null;
             int start = id + 1;
             int distPos = id;
-            int length = size - id - 1;
             System.arraycopy(items, start, items, distPos, size - index - 1);
             items[size - 1] = null;
             size--;
@@ -73,4 +72,5 @@ public class Tracker {
         }
         return delete;
     }
+
 }

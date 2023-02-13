@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class StartUI {
     public static void main(String[] args) {
-        Item item = new Item(12, "класс", LocalDateTime.now());
+        Item item = new Item(12, "класс");
         System.out.println(item);
     }
 

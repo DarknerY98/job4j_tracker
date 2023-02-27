@@ -4,6 +4,7 @@ public class Bus implements Transport {
 
     @Override
     public void drive() {
+        System.out.print("Поехали");
 
     }
 
@@ -13,7 +14,8 @@ public class Bus implements Transport {
     }
 
     @Override
-    public int refuel(int fuel) {
-        return 0;
+    public double refuel(double fuel) {
+        double price = fuel * 47.53;
+        return price;
     }
 }

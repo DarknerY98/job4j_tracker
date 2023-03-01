@@ -10,7 +10,7 @@ public class Bus implements Transport {
 
     @Override
     public void passengers(int passengers) {
-
+        System.out.print(passengers);
     }
 
     @Override

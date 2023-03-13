@@ -10,5 +10,6 @@ public class MovementVehicle {
         for (Vehicle a : vehicles) {
             a.move();
         }
-}}
+    }
+}
 

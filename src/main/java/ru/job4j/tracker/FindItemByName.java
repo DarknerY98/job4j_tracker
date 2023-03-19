@@ -18,7 +18,6 @@ public class FindItemByName implements UserAction {
         } else {
             System.out.println("Заявки с именем: " + name + " не найдены.");
         }
-
         return true;
     }
 }

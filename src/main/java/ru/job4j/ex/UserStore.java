@@ -3,27 +3,26 @@ package ru.job4j.ex;
 public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        int index = 0;
         boolean examination = false;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(login)) {
+        User res =  new User(login, false);
+        for (User user : users) {
+            if (user.getUsername().equals(login)) {
                 examination = true;
-                index = i;
+                res = user;
                 break;
             }
         }
         if (!examination) {
             throw new UserNotFoundException("Пользователь не найден");
         }
-        return users[index];
+        return res;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        boolean res = true;
         if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("Пользователь не валидный");
         }
-        return res;
+        return true;
     }
 
     public static void main(String[] args) throws UserNotFoundException {

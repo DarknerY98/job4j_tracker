@@ -69,4 +69,29 @@ public class StartUITest {
                         + "0. Exit Program" + System.lineSeparator()
         );
     }
+
+    @Test
+    public void whenReplaceItemTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        String replaceName = "New Test Name";
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new EditItem(),
+                new ExitProgram()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu." + ln
+                        + "0. New item name" + ln
+                        + "1. Exit Program" + ln
+                        + "Menu." + ln
+                        + "0. New item name" + ln
+                        + "1. Exit Program" + ln
+        );
+    }
 }

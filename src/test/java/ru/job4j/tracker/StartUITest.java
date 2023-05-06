@@ -14,7 +14,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new ExitProgram()
+                new ExitProgram(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
@@ -30,8 +30,8 @@ public class StartUITest {
                 new String[]{"0", Integer.toString(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
-                new EditItem(),
-                new ExitProgram()
+                new EditItem(output),
+                new ExitProgram(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
@@ -46,8 +46,8 @@ public class StartUITest {
                 new String[]{"0", Integer.toString(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeteleItem(),
-                new ExitProgram()
+                new DeteleItem(output),
+                new ExitProgram(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
@@ -55,13 +55,14 @@ public class StartUITest {
 
     @Test
     public void whenExit() {
+        Output output = new StubOutput();
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ExitProgram()
+                new ExitProgram(output)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
@@ -72,6 +73,7 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {
+        Output output = new StubOutput();
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
@@ -80,8 +82,8 @@ public class StartUITest {
                 new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new EditItem(),
-                new ExitProgram()
+                new EditItem(output),
+                new ExitProgram(output)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();

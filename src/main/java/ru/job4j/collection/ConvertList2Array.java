@@ -9,14 +9,12 @@ public class ConvertList2Array {
         int[][] array = new int[groups][cells];
         int row = 0, cell = 0;
         for (Integer num : list) {
-            array[row][cell] = num;
-            if (cells - 1 > cell) {
-                cell += 1;
-            } else if (cells - 1 == cell) {
+            if (cells == cell) {
                 cell = 0;
-                row += 1;
+                row++;
             }
-
+            array[row][cell] = num;
+            cell++;
         }
         return array;
     }

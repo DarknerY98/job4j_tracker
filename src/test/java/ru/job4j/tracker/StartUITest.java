@@ -58,7 +58,7 @@ public class StartUITest {
         Output output = new StubOutput();
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -73,17 +73,16 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {
-        Output output = new StubOutput();
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+                new String[]{"7", String.valueOf(one.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new EditItem(output),
-                new ExitProgram(output)
+                new EditItem(out),
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -91,9 +90,11 @@ public class StartUITest {
                 "Menu." + ln
                         + "0. New item name" + ln
                         + "1. Exit Program" + ln
+                        + "Wrong input, you can select: 0 .. 1" + ln
                         + "Menu." + ln
                         + "0. New item name" + ln
                         + "1. Exit Program" + ln
+                        + "=== Exit Program ===" + ln
         );
     }
 }

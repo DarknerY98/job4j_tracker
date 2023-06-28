@@ -78,7 +78,7 @@ public class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[]{"7", String.valueOf(one.getId()), replaceName, "1"}
+                new String[]{"7", "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new EditItem(out),

@@ -19,4 +19,5 @@ public class UniqueTextTest {
         String text = "A mouse is eaten by a cat";
         assertThat(uniqueText.isEquals(origin, text)).isFalse();
     }
+
 }

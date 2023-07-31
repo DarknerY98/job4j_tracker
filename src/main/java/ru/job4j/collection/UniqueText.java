@@ -11,15 +11,12 @@ public class UniqueText {
         for (String origins : origin) {
             check.add(origins);
         }
-        int a = 0;
         for (String texts : text) {
-            if (check.contains(texts)) {
-              a++;
+            if (!check.contains(texts)) {
+                rsl = false;
+                break;
             }
 
-        }
-        if (a != check.size()) {
-            rsl = false;
         }
         return rsl;
     }

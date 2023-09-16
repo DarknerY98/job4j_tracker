@@ -11,7 +11,7 @@ public class UsageMap {
             map.put("parsentev89@yandex.ru", "Petr Arsentev Sergeevich");
             map.put("petrkulikov@yandex.ru", "Petr Kulikov");
             map.put("ingaivanova@yandex.ru", "Inga Ivanova");
-
+            map.put("ingaivanova@yandex.ru", "Inga Ivanova");
             for (String key : map.keySet()) {
                 String value = map.get(key);
                 System.out.println(key + " = " + value);

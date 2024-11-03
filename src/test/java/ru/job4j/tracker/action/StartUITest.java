@@ -103,4 +103,47 @@ public class StartUITest {
         );
     }
 
+    @Test
+    public void whenShowAllItems() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        String replaceName = "New Test Name";
+        Input in = new StubInput(
+                new String[]{"1", "0"}
+        );
+        UserAction[] actions = new UserAction[]{
+
+                new ExitProgram(out),
+                new ShowAllItems(out),
+                new CreateAction(out),
+                new DeteleItem(out),
+                new EditItem(out),
+                new FindItemById(out),
+                new FindItemByName(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu." + ln
+                        + "0. Exit Program" + ln
+                        + "1. ShowAll Items" + ln
+                        + "2. Create" + ln
+                        + "3. Detele Item" + ln
+                        + "4. New item name" + ln
+                        + "5. Find Item By Id" + ln
+                        + "6. Find Item By Name" + ln
+                        + "Menu." + ln
+                        + "0. Exit Program" + ln
+                        + "1. ShowAll Items" + ln
+                        + "2. Create" + ln
+                        + "3. Detele Item" + ln
+                        + "4. New item name" + ln
+                        + "5. Find Item By Id" + ln
+                        + "6. Find Item By Name" + ln
+                        + "=== Exit Program ===" + ln
+
+        );
+    }
+
 }

@@ -116,11 +116,6 @@ public class StartUITest {
 
                 new ExitProgram(out),
                 new ShowAllItems(out),
-                new CreateAction(out),
-                new DeteleItem(out),
-                new EditItem(out),
-                new FindItemById(out),
-                new FindItemByName(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -128,19 +123,9 @@ public class StartUITest {
                 "Menu." + ln
                         + "0. Exit Program" + ln
                         + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
                         + "Menu." + ln
                         + "0. Exit Program" + ln
                         + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
                         + "=== Exit Program ===" + ln
 
         );
@@ -153,16 +138,11 @@ public class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[]{"6", "78", "0"}
+                new String[]{"1", "78", "0"}
         );
         UserAction[] actions = new UserAction[]{
 
                 new ExitProgram(out),
-                new ShowAllItems(out),
-                new CreateAction(out),
-                new DeteleItem(out),
-                new EditItem(out),
-                new FindItemById(out),
                 new FindItemByName(out)
         };
         new StartUI(out).init(in, tracker, actions);
@@ -170,22 +150,12 @@ public class StartUITest {
         assertThat(out.toString()).isEqualTo(
                 "Menu." + ln
                         + "0. Exit Program" + ln
-                        + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
+                        + "1. Find Item By Name" + ln
                         + "=== Find items by name ===" + ln
                         + "Заявки с именем: 78 не найдены." + ln
                         + "Menu." + ln
                         + "0. Exit Program" + ln
-                        + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
+                        + "1. Find Item By Name" + ln
                         + "=== Exit Program ===" + ln
 
         );
@@ -198,39 +168,24 @@ public class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[]{"5", "78", "0"}
+                new String[]{"1", "78", "0"}
         );
         UserAction[] actions = new UserAction[]{
 
                 new ExitProgram(out),
-                new ShowAllItems(out),
-                new CreateAction(out),
-                new DeteleItem(out),
-                new EditItem(out),
                 new FindItemById(out),
-                new FindItemByName(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString()).isEqualTo(
                 "Menu." + ln
                         + "0. Exit Program" + ln
-                        + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
+                        + "1. Find Item By Id" + ln
                         + "=== Find item by id ===" + ln
                         + "Заявка с введенным id: 78 не найдена." + ln
                         + "Menu." + ln
                         + "0. Exit Program" + ln
-                        + "1. ShowAll Items" + ln
-                        + "2. Create" + ln
-                        + "3. Detele Item" + ln
-                        + "4. New item name" + ln
-                        + "5. Find Item By Id" + ln
-                        + "6. Find Item By Name" + ln
+                        + "1. Find Item By Id" + ln
                         + "=== Exit Program ===" + ln
 
         );

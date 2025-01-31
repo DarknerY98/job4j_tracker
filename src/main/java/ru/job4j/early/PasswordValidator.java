@@ -26,7 +26,7 @@ public class PasswordValidator {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("Password can't be null");
         }
-        if (password.length() > 8 &&  password.length() < 32) {
+        if (!(password.length() > 8 &&  password.length() < 32)) {
             throw new IllegalArgumentException(
                     "Password should be length [8, 32]"
             );
@@ -37,7 +37,6 @@ public class PasswordValidator {
         boolean hasDigit = false;
         boolean hasSpecial = false;
         for (char symbol : password.toCharArray()) {
-            /* Блок проверки принадлежности символа к определенной группе - Character.is ... */
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
             }

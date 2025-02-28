@@ -50,7 +50,7 @@ public class PasswordValidator {
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
             }
-            if (hasSpecial == true && hasSpecial == true && hasLowCase == true && hasUpCase == true)
+            if (hasSpecial && hasSpecial  && hasLowCase  && hasUpCase )
             {
                 break;
             }

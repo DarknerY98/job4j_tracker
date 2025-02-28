@@ -22,8 +22,9 @@ public class PasswordValidator {
      * @param password Пароль
      * @return Вернет пароль или выбросит исключение.
      */
+    @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
     public static String validate(String password) {
-        if (password.isEmpty()) {
+        if (password != null || password.isEmpty()) {
             throw new IllegalArgumentException("Password can't be null");
         }
         if (!(password.length() > 8 &&  password.length() < 32)) {
@@ -39,16 +40,25 @@ public class PasswordValidator {
         for (char symbol : password.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
+
             }
             if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
+
             }
             if (Character.isDigit(symbol)) {
                 hasDigit = true;
+
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+
             }
+            if (hasSpecial == true && hasSpecial == true && hasLowCase == true && hasUpCase == true)
+            {
+                break;
+            }
+
         }
         if (!hasUpCase) {
             throw new IllegalArgumentException(

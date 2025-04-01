@@ -24,8 +24,10 @@ public class PasswordValidator {
      */
     @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
     public static String validate(String password) {
-        if (password != null || password.isEmpty()) {
-            throw new IllegalArgumentException("Password can't be null");
+        if (password == null || password.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Password can't be null"
+            );
         }
         if (!(password.length() > 8 &&  password.length() < 32)) {
             throw new IllegalArgumentException(
@@ -37,6 +39,7 @@ public class PasswordValidator {
         boolean hasLowCase = false;
         boolean hasDigit = false;
         boolean hasSpecial = false;
+
         for (char symbol : password.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
@@ -50,11 +53,22 @@ public class PasswordValidator {
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
             }
-            if (hasSpecial && hasSpecial  && hasLowCase  && hasUpCase) {
+            if (hasSpecial && hasDigit  && hasLowCase  && hasUpCase) {
                 break;
             }
 
         }
+
+        String[] arrSubString = {"qwerty", "12345", "password", "admin", "user"};
+        //String[] arrSubString = subString.split(",");
+        boolean hasSubString = false;
+        for (String subStr : arrSubString) {
+            if (password.toLowerCase().contains(subStr)) {
+                hasSubString = true;
+                break;
+            }
+        }
+
         if (!hasUpCase) {
             throw new IllegalArgumentException(
                     "Password should contain at least one uppercase letter"
@@ -73,6 +87,16 @@ public class PasswordValidator {
         if (!hasSpecial) {
             throw new IllegalArgumentException(
                     "Password should contain at least one special symbol"
+            );
+        }
+//        if (!hasSpecial) {
+//            throw new IllegalArgumentException(
+//                    "Password should contain at least one special symbol"
+//            );
+//        }
+        if (hasSubString) {
+            throw new IllegalArgumentException(
+                    "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
             );
         }
         return password;

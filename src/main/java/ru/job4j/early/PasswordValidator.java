@@ -22,7 +22,7 @@ public class PasswordValidator {
      * @param password Пароль
      * @return Вернет пароль или выбросит исключение.
      */
-    @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
+
     public static String validate(String password) {
         if (password == null || password.isEmpty()) {
             throw new IllegalArgumentException(
@@ -60,7 +60,6 @@ public class PasswordValidator {
         }
 
         String[] arrSubString = {"qwerty", "12345", "password", "admin", "user"};
-        //String[] arrSubString = subString.split(",");
         boolean hasSubString = false;
         for (String subStr : arrSubString) {
             if (password.toLowerCase().contains(subStr)) {
@@ -89,11 +88,7 @@ public class PasswordValidator {
                     "Password should contain at least one special symbol"
             );
         }
-//        if (!hasSpecial) {
-//            throw new IllegalArgumentException(
-//                    "Password should contain at least one special symbol"
-//            );
-//        }
+
         if (hasSubString) {
             throw new IllegalArgumentException(
                     "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"

@@ -6,6 +6,17 @@ import java.util.Arrays;
 
 public class SingleTracker {
 
+    private static SingleTracker instance;
+
+    private SingleTracker() {
+        System.out.println("Готово");
+    }
+
+    public static SingleTracker get() {
+
+        return instance;
+    }
+
     private Tracker tracker = new Tracker();
 
     public Item add(Item item) {
@@ -16,8 +27,8 @@ public class SingleTracker {
         return tracker.findById(itemInt);
     }
 
-    public Item[] findByName(String[] nameItem) {
-        return tracker.findByName(Arrays.toString(nameItem));
+    public Item[] findByName(String nameItem) {
+        return tracker.findByName(nameItem);
     }
 
     public Item[] findAll() {

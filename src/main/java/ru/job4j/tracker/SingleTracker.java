@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class SingleTracker {
 
     private static SingleTracker instance;
+    private Tracker tracker = new Tracker();
 
     private SingleTracker() {
         System.out.println("Готово");
@@ -16,8 +17,6 @@ public class SingleTracker {
 
         return instance;
     }
-
-    private Tracker tracker = new Tracker();
 
     public Item add(Item item) {
         return tracker.add(item);

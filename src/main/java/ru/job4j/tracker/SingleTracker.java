@@ -13,8 +13,10 @@ public class SingleTracker {
         System.out.println("Готово");
     }
 
-    public static SingleTracker get() {
-
+    public static SingleTracker getInstance() {
+        if (instance == null) {
+            instance = new SingleTracker();
+        }
         return instance;
     }
 

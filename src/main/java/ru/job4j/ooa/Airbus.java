@@ -16,7 +16,6 @@ public final class Airbus extends Aircraft {
         this.name = name;
     }
 
-
     public void printAirobusModel() {
         System.out.println("Модель самолета: " + name);
     }

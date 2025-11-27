@@ -18,10 +18,11 @@ public class ReconstructPhrase {
         StringBuilder elements = new StringBuilder();
         int size = evenElements.size();
         for (int i = 0; i < size; i++) {
-            Character character = (Character) evenElements.pollFirst();
-           if (i % 2 == 0) {
-               elements.append(character);
-           }
+            if (i % 2 == 0) {
+                elements.append((Character) evenElements.pollFirst());
+            } else {
+                evenElements.pollFirst();
+            }
         }
         return elements.toString();
     }
@@ -29,8 +30,7 @@ public class ReconstructPhrase {
     private String getDescendingElements() {
         StringBuilder elements = new StringBuilder();
         while ((!descendingElements.isEmpty())) {
-            Character character = (Character) descendingElements.pollFirst();
-            elements.append(character);
+            elements.append((Character) descendingElements.pollFirst());
         }
         return elements.reverse().toString();
     }
